@@ -18,7 +18,7 @@ class ProConsBuffer {
             String s = message;
             System.out.println("Consuming : " + s);
             isEmptyBuffer = !isEmptyBuffer;
-            notify();
+            notifyAll();
             return s;
         }
 
@@ -33,6 +33,6 @@ class ProConsBuffer {
             message = s;
             System.out.println("Producing " + message);
             isEmptyBuffer = !isEmptyBuffer;
-            notify();
+            notifyAll();
         }
 }

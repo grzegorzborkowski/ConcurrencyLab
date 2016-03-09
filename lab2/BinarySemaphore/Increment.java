@@ -1,10 +1,10 @@
-class Decrement implements Runnable {
+class Increment implements Runnable {
 
     PackedInteger packedInteger;
     BinarySemaphore binarySemaphore;
     int range;
 
-    public Decrement(BinarySemaphore binarySemaphore, PackedInteger packedInteger, int range) {
+    public Increment(BinarySemaphore binarySemaphore, PackedInteger packedInteger, int range) {
         this.binarySemaphore = binarySemaphore;
         this.packedInteger = packedInteger;
         this.range = range;
@@ -13,7 +13,7 @@ class Decrement implements Runnable {
     public void run() {
         for (int i = 0; i < range; i++) {
             binarySemaphore.P();
-            packedInteger.decrease();
+            packedInteger.increase();
             binarySemaphore.V();
         }
         packedInteger.printValue();
