@@ -1,12 +1,14 @@
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 class PrintMonitor {
-
     private final Lock lock = new ReentrantLock();
     private final Condition waiting_for_printer = lock.newCondition();
-    private final Set<Integer> printers = new HashSet<Integer>();
-    Integer availablePrinter;
+    private final Set<Integer> printers = new HashSet<>();
+    private Integer availablePrinter;
 
     public PrintMonitor(int numberOfPrinters) {
         for (int i = 0; i < numberOfPrinters; i++) {
