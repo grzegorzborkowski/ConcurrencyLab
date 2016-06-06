@@ -28,4 +28,3 @@ func main() {
 	go consume()
 	<-done
 }
-
