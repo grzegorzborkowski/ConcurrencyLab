@@ -1,0 +1,7 @@
+{
+  "name": "tw-lab9",
+  "dependencies": {
+    "async": "1.x"
+  },
+  "engine": "node >= 0.10.1"
+}
